@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% if result == None %}
+        <p>The game is a draw</p>
+    {% else %}
+        <p>{{result.name}} has won by playing {{result.move}}</p>
+    {% endif %}
+
+{% endblock  %}
