@@ -1,14 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'play.html' %}
 
-{% block content %}
+{% block inner %}
+    
+    <h3>score board:</h3>
+    <div>
+        <p>Draw: {{ result.player.draw }}</p>
+        <span>{{result.player.name}}: {{result.player.score}}</span>
+        vs
+        <span>{{result.computer.score}} :{{result.computer.name}}</span>
+    </div>    
 
-    {% if result == None %}
+    {% if result.draw == True %}
         <p>The game is a draw</p>
+        <p>{{result.player.name}} & {{result.computer.name}} both played {{result.player.move}}</p>
     {% elif result == 'invalid input' %}
         <h4>Error: '{{result}}'</h4>
         <p>move must be 'rock', 'paper' or 'scissors'</p>
     {% else %}
-        <p>{{result.name}} has won by playing {{result.move}}</p>
+        <p>{{result.winner.name}} has won by playing {{result.winner.move}}</p>
+        <p>{{result.loser.name}} has lost by playing {{result.loser.move}}</p>
     {% endif %}
 
 {% endblock  %}
