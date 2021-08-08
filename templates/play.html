@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2>Play Game</h2>
+
+    <section>
+        <div>
+            {% if result is defined %}
+                {% block inner %}{% endblock %}
+            {% else %}
+                <p>Result placeholder</p>
+            {% endif %}
+        </div>
+        <div>
+            <form action="/play" method="post">
+                {% if result is not defined %}
+                    <label for="name">Your Name: </label>
+                    <input type="text" name="name" id="name" required="required">
+                {% endif %}
+                <input type="radio" name="move" id="rock" value="rock">
+                <label for="rock">&#9994;</label>        
+                
+                <input type="radio" name="move" id="paper" value='paper'>
+                <label for="paper">&#9995;</label>   
+                
+                <input type="radio" name="move" id="scissors" value='scissors'>
+                <label for="scissors">&#9996;</label>   
+
+                <button type="submit">Play!</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock  %}
