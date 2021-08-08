@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+
     {% if result == None %}
         <p>The game is a draw</p>
+    {% elif result == 'invalid input' %}
+        <h4>Error: '{{result}}'</h4>
+        <p>move must be 'rock', 'paper' or 'scissors'</p>
     {% else %}
         <p>{{result.name}} has won by playing {{result.move}}</p>
     {% endif %}
