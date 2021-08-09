@@ -12,6 +12,7 @@ class Player():
     def initialize(self):
         self.name = ''
         self.move = ''
+        self.draw = 0
         self.score = 0
 
     def random_pick(self):
